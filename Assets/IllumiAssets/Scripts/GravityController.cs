@@ -3,12 +3,14 @@ using UnityEngine;
 public class GravityController : MonoBehaviour
 {
     //重力加速度
-    private const float Gravity = -9.8f;
+    private const float Gravity = 9.8f;
 
     //重力の適用具合
     [SerializeField] private float _gravityScale = 1.0f;
 
     private InputSystem_Actions _inputActions;
+
+
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -26,7 +28,7 @@ public class GravityController : MonoBehaviour
         if (_inputActions.Player.Jump.IsPressed())
             vector.y = 1.0f;
         else
-            vector.y = 1.0f;
+            vector.y = -1.0f;
         Physics.gravity = Gravity * vector.normalized * _gravityScale;
 
 
